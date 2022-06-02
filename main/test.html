@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form</title>
+	<link rel="stylesheet" type="text/css" href="main/style.css">
+	<script type="text/javascript" language="javascript">
+ 
+function validateForm()
+    {
+        var ufname=document.forms["regform"]["fname"].value;
+        var uemail=document.forms["regform"]["email"].value;
+        var uGender=document.forms["regform"]["gender"].value;
+        var uCountry=document.forms["regform"]["country"].value;
+        var uEnquiry=document.forms["regform"]["enquiry"].value;
+
+        if (ufname=="" || uemail=="" || uGender=="" || uCountry=="" || uEnquiry=="" )
+        {
+            alert("PLEASE ENTER THE VALUES!");
+            return false;
+        }
+        else
+        {
+            var myWindow = window.open("", "RegisterWindow", "width=500,height=400");
+            myWindow.document.write("<p>Congratulations! </p> <p>Name :  "+ufname+".</p><p>EMail : "+ uemail +".</p><p>Country : "+ uCountry +"</p><p>Your Detail Enquiry : "+ uEnquiry +".");
+        }
+    }
+</script>
+<style type="text/css">
+	div {
+        margin-bottom: 5px;
+      }
+      label {
+        display: inline-block;
+        width: 170px;
+
+      }
+      input{
+        padding: 0px 10px;
+      }
+</style>
+
+
+
+<form method="post" name="regform" id="regform" onsubmit="return validateForm()">
+<div>
+  <label>First name: </label>
+  <input  type="text" name="fname" id="fname" placeholder="Your Name">
+</div>
+<div>
+  <label>Email Address: </label>
+  <input  type="text" name="email" id="email" placeholder="hi@domain.com">
+</div>
+<div>
+  <label>Gender: </label>
+  <input type="radio" id="male" name="gender" value="male"> Male
+<input type="radio" id="female" name="gender" value="female"> Female
+</div>
+<div>
+    <label>Country: </label>
+ <select id="country" name="country">
+ <option disabled selected value> -- select a country -- </option>
+ <option value="Narnia">Narnia</option>
+ <option value="Neverland">Neverland</option>
+ <option value="Vulcan">Vulcan</option>
+</select>
+</div>
+<div>
+    <label>Please write your enquiry:</label>
+<textarea id="enquiry" rows="4" style="padding: 0px 15px"></textarea>
+</div>
+
+  <button type="submit" value="submit">Register</button>  <input type="reset" value="Reset">
+</form>
+
+</body>
+</html>
